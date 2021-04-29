@@ -20,12 +20,23 @@ var init = function (window) {
         ////////////////////////////////////////////////////////////
         
         // TODO 1 : Declare and initialize our variables
-
+     var circle;
+     var circles = [];
 
         // TODO 2 : Create a function that draws a circle 
-        
-
+    function drawCircle(){
+    circle = draw.randomCircleInArea(canvas, true, true, '#999', 2);
+    physikz.addRandomVelocity(circle, canvas);
+    view.addChild(circle);
+    circles.push(circle);
+     }   
+//Remeber to ask if you should put that code here from todo 2
         // TODO 3 / 7 : Call the drawCircle() function 
+        var loopCircles = drawCircle();
+        for (loopCircles = 0; loopCircles < 100; loopCircles++) {
+            drawCircle();
+        }
+
 
 
         ////////////////////////////////////////////////////////////
@@ -42,10 +53,15 @@ var init = function (window) {
 
             
             // TODO 5 : Call game.checkCirclePosition() on your circles.
-           
+
 
             // TODO 8 : Iterate over the array
-           
+           for (var i = 0; i < circles.length; i++) {
+              physikz.updatePosition(circles[i]);
+              var eachCircle = circles
+              physikz.updatePosition(eachCircle);
+              game.checkCirclePosition(eachCircle);
+           }
             
         }
     
@@ -62,7 +78,19 @@ var init = function (window) {
             }
             
             // TODO 6 : YOUR CODE STARTS HERE //////////////////////
-            
+            //If the circle go off to the left side, it needs to come back on the right side
+            if ( circle.x < 0 ) {
+               circle.x = canvas.width 
+
+            } 
+            if( circle.y > canvas.height ) {
+                circle.y = 0
+
+            } 
+            if ( circle.y < 0){
+                circle.y = canvas.height
+
+            }
 
 
             // YOUR TODO 6 CODE ENDS HERE //////////////////////////
