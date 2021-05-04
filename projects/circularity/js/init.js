@@ -32,8 +32,7 @@ var init = function (window) {
      }   
 //Remeber to ask if you should put that code here from todo 2
         // TODO 3 / 7 : Call the drawCircle() function 
-        var loopCircles = drawCircle();
-        for (loopCircles = 0; loopCircles < 100; loopCircles++) {
+        for (var loopCircles = 0; loopCircles < 100; loopCircles++) {
             drawCircle();
         }
 
@@ -57,8 +56,7 @@ var init = function (window) {
 
             // TODO 8 : Iterate over the array
            for (var i = 0; i < circles.length; i++) {
-              physikz.updatePosition(circles[i]);
-              var eachCircle = circles
+              var eachCircle = circles[i]
               physikz.updatePosition(eachCircle);
               game.checkCirclePosition(eachCircle);
            }
